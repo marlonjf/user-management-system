@@ -1,0 +1,18 @@
+<%# Duplicated at LoanFlow %>
+<div id="flash-messages-container">
+  <% flash.each do |type, message| %>
+    <% next unless message.is_a? String %>
+    <div class="flash-message">
+      <div class="row <%="alert alert-#{type} alert-dismissable"%>" role="alert">
+        <div class="block-one">
+          <p>
+            <%= message %>
+          </p>
+        </div>
+        <div class="block-two">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
