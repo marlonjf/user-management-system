@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+  devise_for :users,
+    controllers: {
+      registrations: 'registrations',
+      sessions: 'sessions',
+      passwords: 'passwords',
+    }
 
-  authenticated :user do
-    root to: "users#profile"
+  devise_scope :user do
+    authenticated :user do
+      resources :users, only: [:show]
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
 end
