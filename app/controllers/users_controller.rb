@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :user, only: %i[show edit update]
+  before_action :user, only: %i[show edit update destroy]
 
   def show
     @user = User.find(params[:id])
@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to new_user_session_path
   end
 
   private
