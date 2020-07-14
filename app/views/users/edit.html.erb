@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h1>Editing Info</h1>
+  </div>
+</div>
+<div class="row m-5">
+  <div class="col-6 offset-3">
+    <%= simple_form_for @user, wrapper: :input_group do |f| %>
+
+      <%= f.error_notification %>
+
+      <% if @user.avatar.attached? %>
+        <div class="text-center m-3">
+          <%= image_tag @user.avatar, style: "height: 10em" %>
+        </div>
+      <% end %>
+
+      <%= f.file_field :avatar, class: 'mt-3 mb-3' %>
+
+      <%= f.input :name %>
+
+      <%= f.input :email %>
+
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    <% end %>
+  </div>
+</div>

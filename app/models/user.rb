@@ -7,4 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: { basic: 0, admin: 1 }
+
+  has_one_attached :avatar
 end

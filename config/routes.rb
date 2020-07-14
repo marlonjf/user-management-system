@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      resources :users, only: [:show]
+      resources :users, only: %i[show edit update]
     end
 
     unauthenticated do

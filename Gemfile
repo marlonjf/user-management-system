@@ -15,6 +15,7 @@ gem 'pg', '0.20'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sass-rails', '~> 6.0.0'
+gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
