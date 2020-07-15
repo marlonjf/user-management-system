@@ -1,0 +1,18 @@
+<div class="row m-2">
+  <div class="col-6 text-center mb-2 mt-2">
+    <h1>Administrator <%= current_user.name %></h1>
+  </div>
+  <div class="col-6 text-right">
+    <h4>Admins: <%= @users.admin.size %></h4>
+    <h4>Basics: <%= @users.basic.size %></h4>
+    <h4>Total: <%= @users.size %></h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 text-center m-2">
+    <%= link_to 'Create User', new_user_path, class: "btn btn-success" %>
+  </div>
+</div>
+
+<%= render 'list' %>

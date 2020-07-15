@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      resources :users, only: %i[show edit update destroy]
+      root to: 'users#current_user_home', as: :authenticated_root
+      resources :users do
+        post :create_user, on: :collection
+        post :toggle_role, on: :member
+      end
     end
 
     unauthenticated do

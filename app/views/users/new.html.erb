@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h1>Create User</h1>
+  </div>
+</div>
+<div class="row m-5">
+  <div class="col-6 offset-3">
+    <%= simple_form_for @user, url: create_user_users_path do |f| %>
+
+      <%= f.error_notification %>
+
+      <% if @user.avatar.attached? %>
+        <div class="text-center m-3">
+          <%= image_tag @user.avatar, style: "height: 10em" %>
+        </div>
+      <% end %>
+
+      <%= f.file_field :avatar, class: 'mt-3 mb-3' %>
+
+      <%= f.input :name %>
+
+      <%= f.input :email %>
+      <%= f.input :role, as: :select, collection: User.roles  %>
+
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+
+      <%= f.button :submit, class: "btn-primary" %>
+    <% end %>
+  </div>
+</div>
