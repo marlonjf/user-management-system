@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     authenticated :user do
       root to: 'users#current_user_home', as: :authenticated_root
       resources :users do
-        post :create_user, on: :collection
+        collection do
+          post :create_user
+          post :import
+          get :import_page
+        end
         post :toggle_role, on: :member
       end
     end

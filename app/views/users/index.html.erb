@@ -10,9 +10,11 @@
 </div>
 
 <div class="row">
-  <div class="col-12 text-center m-2">
-    <%= link_to 'Create User', new_user_path, class: "btn btn-success" %>
+  <div class="col-md-12 text-center">
+    <%= link_to 'Create User', new_user_path, class: "btn btn-light" %>
+    <%= link_to 'Import', import_page_users_path, class: "btn btn-light" %>
   </div>
 </div>
+
 
 <%= render 'list' %>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h1>Import Users</h1>
+  </div>
+</div>
+<%= simple_form_for :file, url: import_users_path, method: :post do |f| %>
+  <div class="row m-5">
+    <div class="col-6 offset-2">
+      <%= f.input :csv, as: :file, label: false, wrapper_html: { class: 'd-inline' },
+                input_html: { required: true, class: "btn btn-light d-inline"} %>
+    </div>
+    <div class="col-4">
+      <%= f.submit 'Import', class: 'btn btn-light' %>
+    </div>
+  </div>
+<% end %>

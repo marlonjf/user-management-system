@@ -26,6 +26,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def import_page; end
+
+  def import
+    service = ImportCsvService.new(csv_data: file_params[:csv])
+    service.import
+    flash[:success] = 'Imported successfully'
+  rescue InvalidSpreadsheet
+    flash[:warning] = 'Invalid spreadsheet'
+  ensure
+    redirect_to path_flow
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -83,5 +95,9 @@ class UsersController < ApplicationController
 
   def authenticate_admin
     redirect_to root_path unless current_user.admin?
+  end
+
+  def file_params
+    params.require(:file).permit(:csv)
   end
 end
