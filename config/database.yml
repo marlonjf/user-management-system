@@ -1,20 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  host: <%=ENV["POSTGRES_HOST"]%>
-  database: <%=ENV["POSTGRES_DATABASE"]%>
-  username: <%=ENV.fetch("POSTGRES_USER") %>
-  password: <%=ENV.fetch("POSTGRES_PASSWORD") %>
-  port: 5432
+  host: db
+  database: fullstack
+  username: postgres
 
 development:
   <<: *default
-  database: <%=ENV.fetch("POSTGRES_DATABASE")%>
+  database: fullstack
   pool: 60
 
 test:
   <<: *default
-  database: <%=ENV.fetch("POSTGRES_DATABASE_TEST")%>
+  database: fullstack_test
   pool: 5
 
 staging:
