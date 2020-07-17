@@ -1,9 +1,9 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  host: db
+  host: localhost
   database: fullstack
-  username: postgres
+  username: nexoos
 
 development:
   <<: *default
