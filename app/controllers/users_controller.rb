@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to path_flow, notice: 'Access denied.' if current_user != @user
   end
 
   def import_page; end
@@ -31,11 +32,11 @@ class UsersController < ApplicationController
   def import
     service = ImportCsvService.new(csv_data: file_params[:csv])
     service.import
-    flash[:success] = 'Imported successfully'
+    notice = 'Imported successfully'
   rescue InvalidSpreadsheet
-    flash[:warning] = 'Invalid spreadsheet'
+    notice = 'Invalid spreadsheet'
   ensure
-    redirect_to path_flow
+    redirect_to path_flow, notice: notice
   end
 
   def edit
@@ -66,10 +67,6 @@ class UsersController < ApplicationController
     redirect_to path_flow, notice: msg
   end
 
-  def current_user_home
-    redirect_to current_user
-  end
-
   private
 
   def user
@@ -94,7 +91,9 @@ class UsersController < ApplicationController
   end
 
   def authenticate_admin
-    redirect_to root_path unless current_user.admin?
+    return if current_user.admin?
+
+    redirect_to path_flow, notice: 'Access denied.'
   end
 
   def file_params
