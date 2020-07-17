@@ -8,6 +8,6 @@ consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
-    $('#msg').append('<div class="message"> ' + data.content + '</div>')
+    $("#real-time-info").html(data.html);
   }
 });
