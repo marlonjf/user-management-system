@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root to: 'users#current_user_home', as: :authenticated_root
       resources :users do
         collection do
           post :create_user
