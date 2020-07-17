@@ -2,10 +2,8 @@
   <div class="col-6 text-center mb-2 mt-2">
     <h1>Administrator <%= current_user.name %></h1>
   </div>
-  <div class="col-6 text-right">
-    <h4>Admins: <%= @users.admin.size %></h4>
-    <h4>Basics: <%= @users.basic.size %></h4>
-    <h4>Total: <%= @users.size %></h4>
+  <div id="real-time-info" class="col-6 text-right">
+    <%= render 'system_real_time_information', users: @users %>
   </div>
 </div>
 
