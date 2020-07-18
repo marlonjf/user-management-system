@@ -1,7 +1,5 @@
 FROM ruby:2.7.1-alpine
 
-ENV BUNDLER_VERSION=2.0.2
-
 RUN apk add --update --no-cache \
       binutils-gold \
       build-base \
@@ -27,7 +25,7 @@ RUN apk add --update --no-cache \
       python3 \
       tzdata \
       yarn
-RUN gem install bundler -v 2.0.2
+RUN gem install bundler
 ENV APP_HOME /Fullstack-Developer
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
