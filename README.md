@@ -16,7 +16,7 @@
 
 # Getting started
 
-- Be sure to have [docker] installed on your machine
+- Be sure to have [docker](https://docs.docker.com/get-docker/) installed on your machine
 
 - Clone this repository
 ```
@@ -52,6 +52,4 @@ docker-compose logs
 ```
 docker-compose exec app bundle exec rake db:setup db:migrate
 ```
-- Finally, check [project] to see the application running
-[project]: localhost:3000
-[docker]: https://docs.docker.com/get-docker/
+- Finally, check [localhost:3000](localhost:3000) to see the application running
