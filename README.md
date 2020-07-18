@@ -40,9 +40,18 @@ REDIS_URL=redis://redis:6379/1
 DATABASE_NAME_TEST=fullstack_test
 
 ```
-- run docker to start the server
+- Build the container image and create the services running the command below, -d flag runs the containers in background.
 ```
-docker-compose up
+docker-compose up -d
 ```
-
+- Check if build is done
+```
+docker-compose logs
+```
+- After the build is done, create the database and run migrations on it with the following
+```
+docker-compose exec app bundle exec rake db:setup db:migrate
+```
+- Finally, check [project] to see the application running
+[project]: localhost:3000
 [docker]: https://docs.docker.com/get-docker/
