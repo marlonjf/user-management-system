@@ -1,18 +1,20 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  host: localhost
-  database: fullstack
-  username: nexoos
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: <%= ENV['DATABASE_PORT'] || '5432' %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: fullstack
-  pool: 60
 
 test:
   <<: *default
-  database: fullstack_test
+  database: <%= ENV['DATABASE_NAME_TEST'] %>
   pool: 5
 
 staging:

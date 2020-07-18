@@ -1,24 +1,16 @@
-# README
+# User Management Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- UMP is a user management application for Rails.
 
-Things you may want to cover:
+# Stack
 
-* Ruby version
+- ruby 2.7.1
+- rails 6.0.3
 
-* System dependencies
+# Most Important Gem`s used
 
-* Configuration
+- bootstrap
+- devise
+- redis
+- webpacker
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
