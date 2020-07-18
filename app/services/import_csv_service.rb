@@ -22,8 +22,8 @@ class ImportCsvService
   def create_users
     percentage = 100 / csv.size
     csv.each_with_index do |row, index|
-      User.create(row.to_h)
-      ProgressBarJob.perform_later(index * percentage)
+      user = User.find_or_initialize_by(row.to_h)
+      ProgressBarJob.perform_later(index * percentage) if user.save
     end
   end
 
