@@ -8,20 +8,23 @@ ruby '2.7.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.4.1'
 gem 'devise', '~> 4.7.1'
+gem 'factory_bot_rails'
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.4.0'
 gem 'pg', '0.20'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'redis'
+gem 'redis', '~> 4.2.1'
 gem 'sass-rails', '~> 6.0.0'
-gem 'simple_form'
+gem 'simple_form', '~> 5.0.2'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -37,8 +40,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~> 4.0.0'
   gem 'selenium-webdriver'
 end
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data'

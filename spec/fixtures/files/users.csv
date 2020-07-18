@@ -1,0 +1,4 @@
+name,email,role,password,password_confirmation
+usert,1ss@gmail.com,admin,testeteste,testeteste
+user1,2@user.com,basic,testeteste,testeteste
+user2,3@gmail.com,admin,testeteste,testeteste

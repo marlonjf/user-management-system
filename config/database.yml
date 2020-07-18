@@ -14,7 +14,7 @@ development:
 
 test:
   <<: *default
-  database: <%= ENV['DATABASE_NAME_TEST'] %>
+  database: fullstack_test
   pool: 5
 
 staging:

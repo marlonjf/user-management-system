@@ -37,3 +37,7 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+.DS_Store
+coverage/
+capybara-*.html
+.rspec
